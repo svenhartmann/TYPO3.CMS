@@ -362,7 +362,7 @@ class Argument {
 	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentValueException if the argument is not a valid object of type $dataType
 	 */
 	public function setValue($rawValue) {
-		if ($this->configurationManager->isFeatureEnabled('rewrittenPropertyMapper')) {
+		if (is_object($this->configurationManager) && $this->configurationManager->isFeatureEnabled('rewrittenPropertyMapper')) {
 			if ($rawValue === NULL) {
 				$this->value = NULL;
 				return $this;
